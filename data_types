@@ -10,8 +10,8 @@ public class Solution {
         d=sc.nextDouble();
         sc.nextLine();
         s=sc.nextLine();
-        System.out.println(i+(int)d);
-        System.out.println(2*d);
+        System.out.println(i+4);
+        System.out.println(4.0+d);
         System.out.println("HackerRank "+s);
         sc.close();
     }
