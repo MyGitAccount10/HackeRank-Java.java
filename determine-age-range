@@ -1,0 +1,74 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    int age;
+
+    public Solution() {
+    }
+
+    public Solution(int initialAge) {
+        if (initialAge >= 0) {
+            this.age = initialAge;
+        } else {
+            this.age = 0;
+            System.out.println("Age is not valid, setting age to 0.");
+        }
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
+
+    public void yearPasses() {
+        setAge(getAge() + 3);
+    }
+
+    void amIOld() {
+        if (this.age < 13) {
+            System.out.println("You are young.");
+        } else if (this.age >= 13 && this.age < 18) {
+            System.out.println("You are a teenager.");
+        } else {
+            System.out.println("You are old.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int a[] = new int[t];
+
+        Solution d = new Solution();
+        if (t >= 1 && t <= 4) {
+            for (int i = 0; i < a.length; i++) {
+                int g = sc.nextInt();
+                if (g >= -5 && g <= 30) {
+                    a[i] = g;
+                } else {
+                    System.out.println("Please enter the number for -5 30 range");
+                    g = sc.nextInt();
+                    a[i] = g;
+                }
+            }
+        } else {
+            System.out.println("Enter valid number.");
+        }
+
+        for (int i=0;i<a.length;i++)
+        {
+            Solution s = new Solution(a[i]);
+            s.amIOld();
+            s.yearPasses();
+            s.amIOld();
+            if(i<a.length-1){
+            System.out.println();}
+        }
+
+    }
+}
