@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        int q=sc.nextInt();
+        String arr[]= new String[q];
+
+
+        if (q>=1 &&q <=500){
+            for (int i=0;i<q;i++){
+                Scanner sd=new Scanner(System.in);
+                String s=sd.nextLine();
+                arr[i]=s;
+            } } else {
+            System.out.println("Please, enter valid number.");
+        }
+
+
+            for(int k=0;k<q;k++) {
+                String l =arr[k];
+                    String [] m=l.split(" ");
+                    int a = Integer.parseInt(m[0]);
+                    int b = Integer.parseInt(m[1]);
+                    int n = Integer.parseInt(m[2]);
+                    if (n>=1&&n<=15 && a>=0&& b>=0&& a<=50 && b<=50) {
+                    int arr2 []=new int[n];
+
+                    for (int h = 0; h < n; h++) {
+                        double result = Math.pow(2, h) * b;
+                        result += result - b;
+                        arr2 [h] = a + (int) result;
+                        System.out.print(arr2[h] + " ");
+                    }
+                System.out.println();} else {
+                        System.out.println("Please, enter valid number.");
+                    }
+            }}
+}
