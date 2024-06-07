@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String st="";
+        int t=sc.nextInt();
+        if (t>=1 &&t <=10){
+        for (int i=0;i<t;i++){
+        String s=sc.next();
+        st+=s+" ";
+        } } else {
+                System.out.println("Please, enter valid number.");
+            }
+
+        //System.out.println("\n"+st);
+        String a[]=st.split(" ");
+
+
+        if (a.length>=2&&a.length<=10000) {
+        for(int k=0;k<a.length;k++) {
+            String l=a[k];
+
+        for (int j=0;j<l.length();j++) {
+            if (j%2==0) {
+                String ar= String.valueOf(l.charAt(j));
+
+                String arr="";
+                arr+=ar;
+                System.out.print(arr);
+            }
+
+        }
+        System.out.print(" ");
+
+        for (int j=0;j<l.length();j++) {
+            if (j%2!=0) {
+                String ar= String.valueOf(l.charAt(j));
+                String arr_="";
+                arr_+=ar;
+                System.out.print(arr_);
+            }
+        }
+            System.out.println();}}
+        else {
+            System.out.println("Please, enter valid string");
+        }
+
+
+
+
+        //System.out.println("\n"+ Arrays.toString(a));
+
+
+    }
+
+}
