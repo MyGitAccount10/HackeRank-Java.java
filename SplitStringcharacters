@@ -1,59 +1,42 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Solution {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        String st="";
-        int t=sc.nextInt();
-        if (t>=1 &&t <=10){
-        for (int i=0;i<t;i++){
-        String s=sc.next();
-        st+=s+" ";
-        } } else {
-                System.out.println("Please, enter valid number.");
-            }
 
-        //System.out.println("\n"+st);
-        String a[]=st.split(" ");
+        int q=sc.nextInt();
+        sc.skip("[\r\n]+");
+
+        String arr[]= new String[q];
 
 
-        if (a.length>=2&&a.length<=10000) {
-        for(int k=0;k<a.length;k++) {
-            String l=a[k];
-
-        for (int j=0;j<l.length();j++) {
-            if (j%2==0) {
-                String ar= String.valueOf(l.charAt(j));
-
-                String arr="";
-                arr+=ar;
-                System.out.print(arr);
-            }
-
-        }
-        System.out.print(" ");
-
-        for (int j=0;j<l.length();j++) {
-            if (j%2!=0) {
-                String ar= String.valueOf(l.charAt(j));
-                String arr_="";
-                arr_+=ar;
-                System.out.print(arr_);
-            }
-        }
-            System.out.println();}}
-        else {
-            System.out.println("Please, enter valid string");
+        if (q>=1 &&q <=500){
+            for (int i=0;i<q;i++){
+                String s=sc.nextLine();
+                arr[i]=s;
+            } } else {
+            System.out.println("Please, enter valid number.");
         }
 
 
+            for(int k=0;k<q;k++) {
+                String l =arr[k];
+                    String [] m=l.split(" ");
+                    int a = Integer.parseInt(m[0]);
+                    int b = Integer.parseInt(m[1]);
+                    int n = Integer.parseInt(m[2]);
+                    if (n>=1&&n<=15 && a>=0&& b>=0&& a<=50 && b<=50) {
+                    int arr2 []=new int[n];
 
-
-        //System.out.println("\n"+ Arrays.toString(a));
-
-
-    }
-
+                    for (int h = 0; h < n; h++) {
+                        double result = Math.pow(2, h) * b;
+                        result += result - b;
+                        arr2 [h] = a + (int) result;
+                        System.out.print(arr2[h] + " ");
+                    }
+                System.out.println();} else {
+                        System.out.println("Please, enter valid number.");
+                    }
+            }}
 }
