@@ -1,7 +1,11 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc=new Scanner(System.in);
 
         Map<String ,String> phoneBook=new HashMap<String, String >();
@@ -9,20 +13,38 @@ public class Solution {
         sc.skip("[\r\n]+");
         String s1 []=new String[n];
 
-        ArrayList<String> s2=new ArrayList<>();
+        List<String> s2=new ArrayList<>();
         if (n>=1 && n<=100000) {
 
         for (int i=0;i<n;i++) {
             String s=sc.nextLine();
 
+
             s1 =s.split(" ");
-            phoneBook.put(s1[0],s1[1]);
+            if (s1.length==2) {
+            phoneBook.put(s1[0],s1[1]);}
+            else {
+                continue;
+            }
         }
 
-        for (int k=0; k<n; k++) {
+
+    boolean lastLine=false;
+        while (sc.hasNextLine()) {
             String l=sc.nextLine();
+
+            if (l.isEmpty()) {
+                if (lastLine) {
+                break;}
+             else {
+                lastLine=true;
+            }} else {lastLine=false;}
             s2.add(l);
+            if (s2.size()==n) {
+                break;
+            }
         }
+
 
         for (int m=0;m<n;m++) {
             String f=phoneBook.get(s2.get(m));
@@ -32,7 +54,8 @@ public class Solution {
                 System.out.println(s2.get(m)+ "="+f);
             }
 
-        } } else {
+        } }
+        else {
             System.out.println("Please, enter valid number.");
         }
     }
