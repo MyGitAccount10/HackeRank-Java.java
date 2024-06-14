@@ -1,0 +1,74 @@
+import java.util.Arrays;
+import java.util.OptionalDouble;
+import java.util.Scanner;
+
+public class Person {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        String f=sc.nextLine();
+
+        String [] l= new String[3];
+        l=f.split(" ");
+        int n=sc.nextInt();
+
+        int j[]= new int[n];
+        for (int i=0;i<j.length;i++) {
+        j[i]=sc.nextInt();
+        }
+        System.out.println(j[1]);
+
+        Student st=new Student(l[0],l[1],Integer.parseInt(l[2]),j);
+        st.calculate();
+        System.out.println("Name: "+ st.firstName+", "+ st.lastName+"\nID: "+ st.idNumber+"\nGrade: "+st.calculate());
+
+    }
+}
+
+class Student extends Person {
+
+    String firstName;
+    String lastName;
+    int idNumber;
+    int[] scores;
+
+    public Student(String firstName, String lastName, int idNumber, int[] scores) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.idNumber = idNumber;
+        this.scores = scores;
+    }
+
+    char calculate() {
+        int avgScores=0;
+        int sum=0;
+        for (int i=0;i<scores.length;i++) {
+            sum+=scores[i];
+
+        }
+        avgScores=sum/scores.length;
+
+        System.out.println(avgScores);
+        if (firstName.length()>=1 && firstName.length()<=10 && lastName.length()>=1 &&
+                lastName.length()<=10 && String.valueOf(idNumber).length()==7 && avgScores>=0&&avgScores<=100)
+        {
+            if (avgScores>=90&&avgScores<=100) {
+                return 'O';
+            } else if (avgScores>=80&&avgScores<90) {
+                return 'E';
+            } else if (avgScores>=70&&avgScores<80) {
+                return 'A';
+            } else if (avgScores>=55&&avgScores<70) {
+                return 'P';
+            } else if (avgScores>=40&&avgScores<55) {
+                return 'D';
+                
+            } else if (avgScores>=0&&avgScores<40) {
+                return 'T';
+                
+            } else return '0';
+        } else {
+            return 0;
+        }
+    }
+}
