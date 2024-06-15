@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Difference.computeDifference();
+    }
+}
+
+class Difference {
+    static private int [] elements;
+    public static int n;
+    public int maximumDifference;
+    public int[] _elements;
+
+
+    public Difference(int [] elements) {
+        this.n=n;
+        this._elements=elements;
+        this.maximumDifference=maximumDifference;
+
+    }
+
+    public static void computeDifference() {
+        Scanner sc=new Scanner(System.in);
+
+
+        n=sc.nextInt();
+
+        elements=new int[n];
+        for (int i=0;i<n;i++) {
+            int k=sc.nextInt();
+            elements[i]=k;
+        }
+
+        Difference b=new Difference(elements);
+        b.maximumDifference=Math.abs(Arrays.stream(b._elements).max().getAsInt()-Arrays.stream(b._elements).min().getAsInt());
+
+
+
+        System.out.println(b.maximumDifference);
+
+
+
+
+    }
+}
