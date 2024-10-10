@@ -1,0 +1,61 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+public static void plusMinus(List<Integer> arr) {
+    // Write your code here
+    int n =arr.size();
+int cntPositive=0;
+    int cntNegative=0;
+    int cntZero=0;
+    
+    if(n>0&&n<=100){
+        
+        for(int i=0;i<arr.size();i++) {
+            if(arr.get(i)>0&&arr.get(i)<=100){
+cntPositive+=1;
+            } else if(arr.get(i)<0&&arr.get(i)>=-100){
+                cntNegative+=1;
+            } else if(arr.get(i)==0) {
+                cntZero+=1;
+            } else {System.out.println("Please, enter valid number.");
+            }
+        }
+        
+float ratioP=(float)cntPositive/(float)arr.size();
+float ratioN=(float)cntNegative/(float)arr.size();
+float ratioZ=(float)cntZero/(float)arr.size();
+  System.out.printf("%4.5f",ratioP);
+  System.out.println();
+System.out.printf("%4.5f",ratioN);
+  System.out.println();
+  System.out.printf("%4.5f",ratioZ);
+    }
+    
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+Result.plusMinus(arr);
+
+        bufferedReader.close();
+    }
+}
