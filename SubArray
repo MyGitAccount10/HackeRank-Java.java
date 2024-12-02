@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        System.out.println(sumArrElements());
+    }
+    
+    
+    public static int   sumArrElements() {
+        
+        int sum=0;
+        int cnt =0;
+        
+        Scanner sc =new Scanner(System.in);
+        
+        int n=sc.nextInt();
+        
+        List<Integer>arr=new ArrayList<Integer>();
+
+        while(sc.hasNext()){
+         int k=sc.nextInt();
+            arr.add(k);
+        }
+        
+    //System.out.println(arr);
+        
+         for(int i=0;i<n;i++) {
+           
+            sum=arr.get(i);
+            if(sum<0){
+                cnt++;
+            }
+            //sum =arr.get(i);
+            for(int j=i+1;j<n;j++)
+            {
+            //sum=arr.get(i);
+            sum+=arr.get(j);
+            if(sum<0){
+                cnt++;
+            }
+            //System.out.println(sum);
+            }
+         }
+         
+      return cnt;
+   
+    }
+}
