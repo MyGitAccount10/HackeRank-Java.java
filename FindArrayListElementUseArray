@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+public class  Solution {
+
+    public static void  main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       
+        ArrayList<String> arr=new ArrayList<String>();
+        
+      while (sc.hasNext())  
+        {
+         String a=sc.nextLine();
+            arr.add(a);
+        }
+        
+        int n=Integer.parseInt(arr.get(0));
+        
+        int q=Integer.parseInt(arr.get(n+1));
+        
+        List<String> a = new ArrayList<String>();
+        List<String>f=new ArrayList<String>();
+        
+        
+        for (int i=1;i<=n;i++)
+        {
+            a.add(arr.get(i));
+        }
+        
+        for (int j=n+2;j<arr.size();j++)
+        {
+            f.add(arr.get(j));
+        }
+        
+    for(int k=0;k<q;k++)
+        {
+int h=Integer.parseInt(f.get(k).split(" ")[0]);
+     int t=Integer.parseInt(f.get(k).split(" ")[1]);
+        
+        try {
+      String [] g= a.get(h-1).split(" ");
+        
+      System.out.println(g[t]);}
+      catch (Exception e) {
+        System.out.println("ERROR!");
+      }
+      
+      } }
+        
+}
