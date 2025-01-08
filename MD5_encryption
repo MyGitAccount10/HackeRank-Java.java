@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException ;
+import java.math.BigInteger;
+
+public class Solution {
+    public static String getMD5 (String s) {
+        
+        try {
+            MessageDigest m=MessageDigest.getInstance("MD5");
+            
+            byte [] sToByte=m.digest(s.getBytes()); 
+            
+      BigInteger bigInt=new BigInteger(1,sToByte);
+      
+      String hashCode=bigInt.toString(16);
+      
+      return hashCode ;
+            
+        } catch (NoSuchAlgorithmException e) {
+  throw new RuntimeException (e);
+        }
+        
+       // return s;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        String print=getMD5(s);
+        System.out.println(print);
+    }
+}
